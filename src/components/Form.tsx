@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { getKeanuFetch } from "@/redux/features/keanuSlice";
 import { Button, Input, Switch } from "@nextui-org/react";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useAppDispatch } from "@/redux/hooks";
 
 const schema = z.object({
   width: z.coerce.number().int().nonnegative().lte(3000),
@@ -16,7 +16,6 @@ const schema = z.object({
 type Schema = z.infer<typeof schema>;
 
 export default function Form() {
-  const keanuImage = useAppSelector((state) => state.Keanu.keanuImage);
   const dispatch = useAppDispatch();
 
   const {
