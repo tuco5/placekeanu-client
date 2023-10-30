@@ -23,17 +23,12 @@ export default function Form() {
     register,
     handleSubmit,
     control,
-    watch,
     formState: { errors },
   } = useForm<Schema>({
     resolver: zodResolver(schema),
   });
 
-  console.log("watch", watch());
-  console.log("errors", errors);
-
   const onSubmit: SubmitHandler<Schema> = (data) => {
-    console.log("Form", data);
     dispatch(
       getKeanuFetch({
         width: data.width,
@@ -94,8 +89,6 @@ export default function Form() {
       >
         Fetch
       </Button>
-
-      {!!keanuImage && <div dangerouslySetInnerHTML={{ __html: keanuImage }} />}
     </form>
   );
 }

@@ -7,7 +7,6 @@ import { GetKeanuImageQuery } from "@/__generated__/graphql";
 import { PayloadAction } from "@reduxjs/toolkit";
 
 function* workGetKeanuFetch(action: PayloadAction<getKeanuPayload>) {
-  console.log("saga", action);
   const keanu: ApolloQueryResult<GetKeanuImageQuery> = yield call(() =>
     apolloClient.query({
       query: KEANU_IMAGE,

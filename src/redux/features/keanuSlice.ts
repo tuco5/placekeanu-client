@@ -24,7 +24,6 @@ export const keanuSlice = createSlice({
   initialState,
   reducers: {
     getKeanuFetch: (state, action: PayloadAction<getKeanuPayload>) => {
-      console.log("Reducer", action);
       state.isLoading = true;
     },
     getKeanuSuccess: (state, action: PayloadAction<string>) => {
