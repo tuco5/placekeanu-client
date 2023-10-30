@@ -3,6 +3,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Input, Switch } from "@nextui-org/react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { z } from "zod";
+import { gql } from "../__generated__";
+import { useQuery } from "@apollo/client";
+
+const KEANU_IMAGE = gql(`
+  query GetKeanuImage($width: String!) {
+    keanuImage(width: $width)
+  }
+`);
 
 const schema = z.object({
   width: z.coerce.number().int().nonnegative().lte(3000).optional(),
@@ -21,6 +29,12 @@ export default function Form() {
   } = useForm<Schema>({
     resolver: zodResolver(schema),
   });
+
+  const { data, loading, error } = useQuery(KEANU_IMAGE, {
+    variables: { width: "500" },
+  });
+
+  console.log("graphql data", data);
 
   const onSubmit: SubmitHandler<Schema> = (data) => {
     console.log("data", data);
@@ -57,6 +71,8 @@ export default function Form() {
       <Button type="submit" color="primary" className="mt-8 uppercase">
         Fetch
       </Button>
+
+      {!!data && <div dangerouslySetInnerHTML={{ __html: data?.keanuImage }} />}
     </form>
   );
 }
