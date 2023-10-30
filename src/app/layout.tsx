@@ -22,7 +22,7 @@ export default function RootLayout({
       <body
         className={twMerge(
           inter.className,
-          "min-h-screen bg-gradient-to-br from-[#B3FFAB] to-[#12FFF7] dark:from-[#360033] dark:to-[#0b8793]"
+          "min-h-screen bg-gradient-to-br  dark:from-[#360033] dark:to-[#0b8793]"
         )}
       >
         <Providers>
