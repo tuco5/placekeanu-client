@@ -79,7 +79,7 @@ export default function Form() {
             name="g"
             render={({ field }) => (
               <Switch className="whitespace-nowrap pt-4" size="md" {...field}>
-                Grey Scale
+                Grayscale
               </Switch>
             )}
           />
