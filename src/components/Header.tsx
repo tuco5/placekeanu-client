@@ -21,6 +21,11 @@ const MENU = [
     label: "Server Docs",
     href: "https://github.com/tuco5/placekeanu-gql-server",
   },
+  {
+    id: 3,
+    label: "Client Docs",
+    href: "https://github.com/tuco5/placekeanu-client",
+  },
 ];
 
 export default function Header() {
@@ -57,12 +62,13 @@ export default function Header() {
         </Link>
       </NavbarBrand>
 
-      <NavbarContent className="hidden sm:flex gap-8" justify="center">
+      <NavbarContent className="hidden sm:flex gap-4" justify="center">
         {MENU.map(({ id, label, href }) => (
-          <NavbarItem key={id}>
-            <Link color="foreground" href={href}>
-              {label}
-            </Link>
+          <NavbarItem
+            key={id}
+            className="px-3 py-1 hover:bg-black hover:text-white transition-all"
+          >
+            <Link href={href}>{label}</Link>
           </NavbarItem>
         ))}
       </NavbarContent>
