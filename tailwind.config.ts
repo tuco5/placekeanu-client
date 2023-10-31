@@ -23,7 +23,7 @@ const config: Config = {
       themes: {
         dark: {
           colors: {
-            primary: "#5614B0",
+            primary: "#FF8008",
           },
         },
       },

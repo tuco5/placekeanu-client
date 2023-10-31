@@ -16,7 +16,11 @@ import { useState } from "react";
 /* TODO: add link to readme for server docs */
 const MENU = [
   { id: 1, label: "API Docs", href: "https://placekeanu.com/" },
-  { id: 2, label: "Server Docs", href: "#" },
+  {
+    id: 2,
+    label: "Server Docs",
+    href: "https://github.com/tuco5/placekeanu-gql-server",
+  },
 ];
 
 export default function Header() {

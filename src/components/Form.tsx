@@ -40,51 +40,55 @@ export default function Form() {
 
   return (
     <form className="w-full" onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex flex-row w-full gap-4 items-center justify-center">
-        <Input
-          autoComplete="off"
-          label="Width"
-          isRequired
-          isClearable
-          variant="bordered"
-          description="Enter a number for the width"
-          isInvalid={"width" in errors}
-          errorMessage={errors ? errors.width?.message : ""}
-          {...register("width")}
-        />
-        <Input
-          autoComplete="off"
-          label="Heigth"
-          isClearable
-          variant="bordered"
-          description="If you don't specify a height, you'll get a square Keanu"
-          isInvalid={"height" in errors}
-          errorMessage={errors ? errors.height?.message : ""}
-          {...register("height")}
-        />
-        <Controller
-          control={control}
-          name="y"
-          render={({ field }) => (
-            <Switch size="md" {...field}>
-              Young
-            </Switch>
-          )}
-        />
-        <Controller
-          control={control}
-          name="g"
-          render={({ field }) => (
-            <Switch className="whitespace-nowrap" size="md" {...field}>
-              Grey Scale
-            </Switch>
-          )}
-        />
+      <div className="flex flex-col md:flex-row w-full gap-4 items-start justify-center">
+        <div className="flex gap-4 md:flex-row flex-col w-full">
+          <Input
+            autoComplete="off"
+            label="Width"
+            isRequired
+            isClearable
+            variant="bordered"
+            description="Enter a number for the width"
+            isInvalid={"width" in errors}
+            errorMessage={errors ? errors.width?.message : ""}
+            {...register("width")}
+          />
+          <Input
+            autoComplete="off"
+            label="Heigth"
+            isClearable
+            variant="bordered"
+            description="If you don't specify a height, you'll get a square Keanu"
+            isInvalid={"height" in errors}
+            errorMessage={errors ? errors.height?.message : ""}
+            {...register("height")}
+          />
+        </div>
+        <div className="flex gap-4 mb-4">
+          <Controller
+            control={control}
+            name="y"
+            render={({ field }) => (
+              <Switch size="md" {...field} className="whitespace-nowrap pt-4">
+                Young
+              </Switch>
+            )}
+          />
+          <Controller
+            control={control}
+            name="g"
+            render={({ field }) => (
+              <Switch className="whitespace-nowrap pt-4" size="md" {...field}>
+                Grey Scale
+              </Switch>
+            )}
+          />
+        </div>
       </div>
       <Button
         type="submit"
         color="primary"
-        className="mt-8 uppercase animate-pulse px-8"
+        className="mb-6 mt-4 uppercase animate-pulse px-8"
       >
         Fetch
       </Button>
