@@ -1,7 +1,7 @@
 import { type CodegenConfig } from "@graphql-codegen/cli";
 
 const config: CodegenConfig = {
-  schema: "http://localhost:4000",
+  schema: "https://hammerhead-app-k48hy.ondigitalocean.app/",
   documents: ["src/**/*.tsx", "src/**/*.ts"],
   generates: {
     "./src/__generated__/": {
